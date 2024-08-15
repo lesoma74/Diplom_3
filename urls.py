@@ -1,0 +1,8 @@
+HOME_URL = "https://stellarburgers.nomoreparties.site"
+LOGIN_URL = "https://stellarburgers.nomoreparties.site/login"
+PROFILE_URL = "https://stellarburgers.nomoreparties.site/account/profile"
+FORGOT_PASSWORD_URL = "https://stellarburgers.nomoreparties.site/forgot-password"
+RESET_PASSWORD_URL = "https://stellarburgers.nomoreparties.site/reset-password"
+CONSTRUCTOR_URL = "https://stellarburgers.nomoreparties.site"
+REGISTER_URL = "https://stellarburgers.nomoreparties.site/register"
+FEED_URL = "https://stellarburgers.nomoreparties.site/feed"
