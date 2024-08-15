@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from page_objects.profile_page import LoginPage, ProfilePage
 from data import TestData
-from urls import LOGIN_URL, HOME_URL, PROFILE_URL
+from urls import LOGIN_URL, BASE_URL, PROFILE_URL
 
 @pytest.mark.usefixtures("driver", "open_login_page")
 class TestEntranceLogoutFromProfile:
@@ -31,8 +31,8 @@ class TestEntranceLogoutFromProfile:
         self.login_page.click_login_button()
 
         # Шаг 4: Проверка URL после успешного входа (на главной странице)
-        self.wait.until(EC.url_contains(HOME_URL))
-        assert HOME_URL in driver.current_url
+        self.wait.until(EC.url_contains(BASE_URL))
+        assert BASE_URL in driver.current_url
 
         # Шаг 5: Нажать на кнопку "Личный кабинет"
         self.profile_page.click_profile_button()

@@ -6,8 +6,9 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.chrome import ChromeDriverManager
-from urls import FORGOT_PASSWORD_URL, LOGIN_URL, HOME_URL
+from urls import FORGOT_PASSWORD_URL, LOGIN_URL, BASE_URL
 
+CHROME_DRIVER_PATH = "C:/tools/chromedriver.exe"
 
 @pytest.fixture(scope="function", params=["chrome", "firefox"])
 def browser(request):
@@ -19,7 +20,8 @@ def driver(browser):
     if browser == "chrome":
         chrome_options = ChromeOptions()
 
-        service = ChromeService(ChromeDriverManager().install())
+        service = ChromeService(executable_path=CHROME_DRIVER_PATH)
+
         driver = webdriver.Chrome(service=service, options=chrome_options)
     elif browser == "firefox":
         firefox_options = FirefoxOptions()
@@ -35,21 +37,18 @@ def driver(browser):
 
 @pytest.fixture(scope="function")
 def open_home_page(driver):
-    driver.get(HOME_URL)
-
-    yield
+    driver.get(BASE_URL)
 
 
 @pytest.fixture(scope="function")
 def open_login_page(driver):
     driver.get(LOGIN_URL)
 
-    yield
 
 @pytest.fixture(scope="function")
 def open_forgot_password_page(driver):
     driver.get(FORGOT_PASSWORD_URL)
-    yield
+
 
 
 

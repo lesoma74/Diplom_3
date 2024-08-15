@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from locators import ConstructorLocators
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import TimeoutException
 import time
 
 
@@ -24,8 +25,11 @@ class ConstructorPage:
         order_button.click()
 
     def close_order_modal(self):
-
         time.sleep(2)  # Задержка на 2 секунды
 
         body_element = self.driver.find_element(By.TAG_NAME, "body")
         body_element.send_keys(Keys.ESCAPE)
+
+
+
+

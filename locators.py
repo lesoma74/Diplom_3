@@ -1,46 +1,47 @@
 from selenium.webdriver.common.by import By
 
-class ForgotPasswordPageLocators:
 
-  profile_button = (By.XPATH, "//p[text()='Личный Кабинет']")
-  reset_password_button = (By.XPATH, "//a[text()='Восстановить пароль']")
-  email_input = (By.XPATH, "//label[text()='Email']/following-sibling::input")
-  submit_reset_button = (By.XPATH, "//button[text()='Восстановить']")
-  toggle_password_button = (By.XPATH, "//input[@type='password' and @name='Введите новый пароль']")
-  email_field = (By.CSS_SELECTOR, "input[name='Введите новый пароль']")
-  order_history_link = (By.XPATH, "//a[@href='/account/order-history']")
+class ForgotPasswordPageLocators:
+    PROFILE_BUTTON = (By.XPATH, "//p[text()='Личный Кабинет']")
+    RESET_PASSWORD_BUTTON = (By.XPATH, "//a[text()='Восстановить пароль']")
+    EMAIL_INPUT = (By.XPATH, "//label[text()='Email']/following-sibling::input")
+    SUBMIT_RESET_BUTTON = (By.XPATH, "//button[text()='Восстановить']")
+    TOGGLE_PASSWORD_BUTTON = (By.XPATH, "//input[@type='password' and @name='Введите новый пароль']")
+    EMAIL_FIELD = (By.CSS_SELECTOR, "input[name='Введите новый пароль']")
+    ORDER_HISTORY_LINK = (By.XPATH, "//a[@href='/account/order-history']")
 
 
 class PersonalAccountLocators:
+    PROFILE_BUTTON = (By.XPATH, "//*[@id='root']/div/header/nav/a/p")
+    EMAIL_INPUT = (By.XPATH, "//label[text()='Email']/following-sibling::input")
+    PASSWORD_INPUT = (By.XPATH, "//label[text()='Пароль']/following-sibling::input")
+    LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти']")
+    ORDER_HISTORY_LINK = (By.XPATH, "//a[@href='/account/order-history']")
+    LOGOUT_BUTTON = (By.XPATH, "//button[text()='Выход']")
 
-  profile_button = (By.XPATH, "//*[@id='root']/div/header/nav/a/p")
-  email_input = (By.XPATH, "//label[text()='Email']/following-sibling::input")
-  password_input = (By.XPATH, "//label[text()='Пароль']/following-sibling::input")
-  login_button = (By.XPATH, "//button[text()='Войти']")
-  order_history_link = (By.XPATH, "//a[@href='/account/order-history']")
-  logout_button = (By.XPATH, "//button[text()='Выход']")
 
 class ConstructorLocators:
-  constructor_button = (By.XPATH, "//*[@id='root']/div/header/nav/ul/li[1]/a/p")
-  orders_feed_button = (By.XPATH, "//*[@id='root']/div/header/nav/ul/li[2]/a/p")
-  bun_fluorescent = (By.XPATH, "//img[@alt='Флюоресцентная булка R2-D3']")
-  sauce_spicy_x = (By.XPATH, "//img[@alt='Соус Spicy-X']")
-  ORDER_BUTTON = (By.XPATH, "//button[text()='Оформить заказ']")
-  bun_fluorescent_top = (By.XPATH, "//span[contains(text(), 'Перетяните булочку сюда (верх)')]")
-  sauce_spicy_x_top = (By.XPATH, "//div[@class='constructor-element constructor-element_pos_top']")
-  close_button = (
-  By.XPATH, "//section[contains(@class,'Modal_modal_opened')]//button[contains(@class,'Modal_modal__close_modified')]")
-  order_id = (By.XPATH, "//*[@id='root']/div/section/div[1]/div")
-  close_button_order = (By.XPATH, "//*[@id='root']/div/section/div[1]/button")
-  order_modal = (By.XPATH, "//*[@id='root']/div/section/div[1]/div")
-  LAST_ORDER_IN_HISTORY = (By.XPATH, "//*[@id='root']/div/main/div/div/div/ul/li[6]/a")
+    CONSTRUCTOR_BUTTON = (By.XPATH, "//p[contains(text(), 'Конструктор')]")
+    ORDERS_FEED_BUTTON = (By.XPATH, "//p[contains(text(), 'Лента Заказов')]")
+    BUN_FLUORESCENT = (By.XPATH, "//img[@alt='Флюоресцентная булка R2-D3']")
+    SAUCE_SPICY_X = (By.XPATH, "//img[@alt='Соус Spicy-X']")
+    ORDER_BUTTON = (By.XPATH, "//button[text()='Оформить заказ']")
+    BUN_FLUORESCENT_TOP = (By.XPATH, "//span[contains(text(), 'Перетяните булочку сюда (верх)')]")
+    SAUCE_SPICY_X_TOP = (By.XPATH, "//div[@class='constructor-element constructor-element_pos_top']")
+    CLOSE_BUTTON = (
+        By.XPATH,
+        "//section[contains(@class,'Modal_modal_opened')]//button[contains(@class,'Modal_modal__close_modified')]")
+    ORDER_ID = (By.CSS_SELECTOR, "h2.Modal_modal__title_shadow__3ikwq.Modal_modal__title__2L34m.text.text_type_digits-large.mb-8")
+    CLOSE_BUTTON_ORDER = (By.CSS_SELECTOR, "button.Modal_modal__close_modified__3V5XS")
+    ORDER_MODAL = (By.CSS_SELECTOR, '.Modal_modal__container__Wo2l_')
+    LAST_ORDER_IN_HISTORY = (By.XPATH, "(//a[contains(@class, 'OrderHistory_link__1iNby')])[last()]")
+
 
 
 class OrderFeedLocators:
-  orders_feed_button = (By.XPATH, "//*[@id='root']/div/header/nav/ul/li[2]/a/p")
-  completed_count = (By.CSS_SELECTOR, "selector-for-completed-count")
-  today_completed_count = (By.CSS_SELECTOR, "selector-for-today-completed-count")
-  order_modal = (By.XPATH, "//*[@id='root']/div/section[2]/div[1]/div")
-  order_element = (By.XPATH, "//*[@id='root']/div/main/div/div/ul/li[1]/a")
-  close_button_svg = (By.XPATH, "//*[@id='root']/div/section[2]/div[1]/button")
-
+    ORDERS_FEED_BUTTON = (By.XPATH, "//*[@id='root']/div/header/nav/ul/li[2]/a/p")
+    COMPLETED_COUNT = (By.CSS_SELECTOR, "selector-for-completed-count")
+    TODAY_COMPLETED_COUNT = (By.CSS_SELECTOR, "selector-for-today-completed-count")
+    ORDER_MODAL = (By.XPATH, "//*[@id='root']/div/section[2]/div[1]/div")
+    ORDER_ELEMENT = (By.XPATH, "//*[@id='root']/div/main/div/div/ul/li[1]/a")
+    CLOSE_BUTTON_SVG = (By.XPATH, "//*[@id='root']/div/section[2]/div[1]/button")

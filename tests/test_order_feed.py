@@ -32,21 +32,21 @@ class TestOrderFeed:
         self.login_page.login(self.email, self.password)
 
         # Переход в конструктор
-        constructor_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.constructor_button))
+        constructor_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.CONSTRUCTOR_BUTTON))
         constructor_button.click()
         self.wait.until(EC.url_contains(CONSTRUCTOR_URL))
 
         # Добавить ингредиенты
         # Перетащить булку в зону заказа
         self.constructor_page.drag_and_drop_ingredient(
-            ConstructorLocators.bun_fluorescent,
-            ConstructorLocators.bun_fluorescent_top
+            ConstructorLocators.BUN_FLUORESCENT,
+            ConstructorLocators.BUN_FLUORESCENT_TOP
         )
 
         # Перетащить соус в зону заказа
         self.constructor_page.drag_and_drop_ingredient(
-            ConstructorLocators.sauce_spicy_x,
-            ConstructorLocators.sauce_spicy_x_top
+            ConstructorLocators.SAUCE_SPICY_X,
+            ConstructorLocators.SAUCE_SPICY_X_TOP
         )
 
         # Оформить заказ
@@ -74,7 +74,7 @@ class TestOrderFeed:
         assert last_order.is_displayed()
 
         # Переход в ленту заказов
-        orders_feed_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.orders_feed_button))
+        orders_feed_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.ORDERS_FEED_BUTTON))
         orders_feed_button.click()
         self.wait.until(EC.url_contains(FEED_URL))
 

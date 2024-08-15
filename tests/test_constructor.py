@@ -7,7 +7,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from page_objects.profile_page import LoginPage, ProfilePage
 from page_objects.constructor_page import ConstructorPage
 from data import TestData
-from urls import LOGIN_URL, HOME_URL, CONSTRUCTOR_URL, FEED_URL
+from urls import LOGIN_URL, BASE_URL, CONSTRUCTOR_URL, FEED_URL
 from locators import ConstructorLocators
 
 @pytest.mark.usefixtures("driver", "open_login_page")
@@ -31,10 +31,10 @@ class TestConstructor:
         self.login_page.enter_email(self.email)
         self.login_page.enter_password(self.password)
         self.login_page.click_login_button()
-        self.wait.until(EC.url_contains(HOME_URL))
+        self.wait.until(EC.url_contains(BASE_URL))
 
         # Шаг 5: Перейти на ленту заказов
-        orders_feed_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.orders_feed_button))
+        orders_feed_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.ORDERS_FEED_BUTTON))
         orders_feed_button.click()
         self.wait.until(EC.url_contains(FEED_URL))
 
@@ -43,26 +43,26 @@ class TestConstructor:
         self.wait.until(EC.visibility_of_element_located(unique_element_locator))
 
         # Шаг 7: Вернуться на главную через конструктор
-        constructor_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.constructor_button))
+        constructor_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.CONSTRUCTOR_BUTTON))
         constructor_button.click()
         self.wait.until(EC.url_contains(CONSTRUCTOR_URL))
 
         # Шаг 8: Нажать на булку, чтобы открыть модальное окно
-        bun_element = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.bun_fluorescent))
+        bun_element = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.BUN_FLUORESCENT))
         bun_element.click()
 
         # Шаг 9: Закрыть модальное окно
-        close_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.close_button))
+        close_button = self.wait.until(EC.element_to_be_clickable(ConstructorLocators.CLOSE_BUTTON))
         close_button.click()
 
         # Шаг 10: Добавить ингредиенты
         self.constructor_page.drag_and_drop_ingredient(
-            ConstructorLocators.bun_fluorescent,
-            ConstructorLocators.bun_fluorescent_top
+            ConstructorLocators.BUN_FLUORESCENT,
+            ConstructorLocators.BUN_FLUORESCENT_TOP
         )
         self.constructor_page.drag_and_drop_ingredient(
-            ConstructorLocators.sauce_spicy_x,
-            ConstructorLocators.sauce_spicy_x_top
+            ConstructorLocators.SAUCE_SPICY_X,
+            ConstructorLocators.SAUCE_SPICY_X_TOP
         )
 
         # Шаг 11: Оформить заказ

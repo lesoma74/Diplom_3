@@ -1,8 +1,10 @@
-HOME_URL = "https://stellarburgers.nomoreparties.site"
-LOGIN_URL = "https://stellarburgers.nomoreparties.site/login"
-PROFILE_URL = "https://stellarburgers.nomoreparties.site/account/profile"
-FORGOT_PASSWORD_URL = "https://stellarburgers.nomoreparties.site/forgot-password"
-RESET_PASSWORD_URL = "https://stellarburgers.nomoreparties.site/reset-password"
-CONSTRUCTOR_URL = "https://stellarburgers.nomoreparties.site"
-REGISTER_URL = "https://stellarburgers.nomoreparties.site/register"
-FEED_URL = "https://stellarburgers.nomoreparties.site/feed"
+
+BASE_URL = "https://stellarburgers.nomoreparties.site"
+
+LOGIN_URL = f"{BASE_URL}/login"
+PROFILE_URL = f"{BASE_URL}/account/profile"
+FORGOT_PASSWORD_URL = f"{BASE_URL}/forgot-password"
+RESET_PASSWORD_URL = f"{BASE_URL}/reset-password"
+CONSTRUCTOR_URL = BASE_URL
+REGISTER_URL = f"{BASE_URL}/register"
+FEED_URL = f"{BASE_URL}/feed"

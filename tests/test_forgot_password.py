@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from page_objects.forgot_password_page import ForgotPasswordPage
 from data import TestData
-from urls import FORGOT_PASSWORD_URL
+
 
 @pytest.mark.usefixtures("driver", "open_forgot_password_page")
 class TestForgotPasswordPage:
