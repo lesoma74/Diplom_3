@@ -8,7 +8,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.chrome import ChromeDriverManager
 from urls import FORGOT_PASSWORD_URL, LOGIN_URL, BASE_URL
 
-CHROME_DRIVER_PATH = "C:/tools/chromedriver.exe"
+
 
 @pytest.fixture(scope="function", params=["chrome", "firefox"])
 def browser(request):
@@ -20,8 +20,7 @@ def driver(browser):
     if browser == "chrome":
         chrome_options = ChromeOptions()
 
-        service = ChromeService(executable_path=CHROME_DRIVER_PATH)
-
+        service = ChromeService(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options=chrome_options)
     elif browser == "firefox":
         firefox_options = FirefoxOptions()

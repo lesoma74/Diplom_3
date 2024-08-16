@@ -56,7 +56,7 @@ class TestOrderFeed:
         self.constructor_page.close_order_modal()
 
         # Ожидание, пока модальное окно исчезнет
-        self.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, "Modal_modal_overlay__x2ZCr")))
+        self.wait.until(EC.invisibility_of_element_located(ConstructorLocators.ORDER_MODAL))
 
         # Переход в личный кабинет
         self.profile_page.click_profile_button()

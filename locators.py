@@ -32,8 +32,8 @@ class ConstructorLocators:
         By.XPATH,
         "//section[contains(@class,'Modal_modal_opened')]//button[contains(@class,'Modal_modal__close_modified')]")
     ORDER_ID = (By.CSS_SELECTOR, "h2.Modal_modal__title_shadow__3ikwq.Modal_modal__title__2L34m.text.text_type_digits-large.mb-8")
-    CLOSE_BUTTON_ORDER = (By.CSS_SELECTOR, "button.Modal_modal__close_modified__3V5XS")
-    ORDER_MODAL = (By.CSS_SELECTOR, '.Modal_modal__container__Wo2l_')
+    CLOSE_BUTTON_ORDER = (By.CSS_SELECTOR, "section[class^='Modal_modal_opened'] button")
+    ORDER_MODAL = (By.XPATH, "//section[contains(@class,'Modal_modal_opened')]//p[contains(text(),'Дождитесь готовности на орбитальной станции')]")
     LAST_ORDER_IN_HISTORY = (By.XPATH, "(//a[contains(@class, 'OrderHistory_link__1iNby')])[last()]")
 
 
